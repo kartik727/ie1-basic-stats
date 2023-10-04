@@ -4,7 +4,7 @@ Kartik Choudhary (33597512)
 
 GitHub Link: https://github.com/kartik727/ie1-basic-stats.git
 
-
+Note: All steps have been performed on the `basic-stats-fork` repo.
 
 QUESTION 1:
 
