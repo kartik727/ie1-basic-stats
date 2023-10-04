@@ -71,6 +71,8 @@ The context of the new commits is not exactly the same as the original because i
 The commit hash also changes since the author has changed.
 
 QUESTION 4: 
+When we cherry pick commits from another branch to add to a target branch, new commit hashes are created but the contents are idential to the original commit.
+Since new commit hashes are created in cherry-picking, when we merge then also new commits are created and we will have two copies of the same content.
 
 
 QUESTION 5:
@@ -82,9 +84,20 @@ If multiple developers are working on the same branch and one of them rebases, i
 which can be crucial for debugging the code.
 
 Safe use-case for rebasing:
-In software development teams, rebasing can help while working on a project with multiple features in progress simultaneously. Each developer creates a feature branch to work on their respective features. As work progresses, the master branch may receive updates from other developers for bug fixes or other features.
+In software development teams, rebasing can help while working on a project with multiple features in progress simultaneously. Each developer creates a feature branch to work on their respective features. 
+As work progresses, the master branch may receive updates from other developers for bug fixes or other features.
 In this scenario, a developer working on a feature branch can use rebasing to keep their branch up-to-date with the latest changes from the main branch. 
 
 QUESTION 6:
+Resetting a commit means moving the branch pointer to a different commit, erasing the commit from the branch's history. This can lead to problems if others are collaborating on the same repository.
+Other risks of using "reset" on a commit that has already been pushed include potential data loss, branch confusion, and the need for force pushes, which can overwrite history and create security risks.
 
 QUESTION 7:
+No, git revert does not remove the reverted commit. Instead, it creates a new commit that effectively reversing its effects.
+
+Brief explanation of how git revert works:
+
+1. You identify the commit you want to revert by specifying its hash.
+2. Git analyzes the changes introduced by that commit.
+3. Git creates a new commit that undoes those changes by applying the reverse of the changes made in the original commit.
+4. The new "revert commit" is added to the history, effectively canceling out the changes from the original commit.
