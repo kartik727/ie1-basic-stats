@@ -37,7 +37,33 @@ Query 6: What is the most recent commit in the main branch?
 Answer: commit da90e878188c6de8870581bdb447299821d7e87b
 
 QUESTION 2:
+2.1 -- Commands executed on your local machine to initiate the process.
+In this exercise, we were asked to commit the new file directly to the main branch.
+So, we created a new file in the main branch and committed it using 
+`git commit -m "Added method for min max calculation"`. 
 
+2.2 -- How to manage merges, particularly in the context of collaborative development.
+Since we were working on the main branch, we pushed the new commit with `git push`.
+Usually we create a new branch for a new feature where
+the name of the branch should be descriptive of the feature (e.g., `min-max-calculation`),
+then work on that branch until the feature is complete, pulling in any changes from
+the main branch periodically. Each commit should have a brief description of the
+changes made in that commit in the commit message. Finally, the feature branch
+is merged into the main branch and the feature branch is deleted. To merge the 
+feature branch into the main branch, we use `git merge min-max-calculation` 
+while on the main branch. Before making commits, we should also create a `.gitignore`
+file to ignore files that should not be committed to the repository, such as 
+temporary files, cache, IDE files, and compiled files, etc.
+
+2.3 -- Steps for pushing the changes to the remote repository.
+Before merging the feature branch into the main branch, we pull the latest changes
+from the remote repository using `git pull`. Then we merge the feature branch into
+the main branch using `git merge min-max-calculation`. Finally, we push the changes
+to the remote repository using `git push`.
+
+2.4 -- Techniques for identifying the specific commit related to this operation.
+We can use `git log` to see the commit history. We can find the commit with our
+commit message and use its hash to identify the specific commit.
 
 QUESTION 3:
 We cherry-picked 14 commits. After cherry-picking, new commit hashes are generated in feature-branch since we are selectively picking few hashes and updating our branch.
